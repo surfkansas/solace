@@ -53,25 +53,7 @@ My own experiment resulted in the following result table, with the coin values r
 
 The more times you flip the coins, each percentage should approach 25%.
 
-For traditional computing, we would accomplish this by generating a pseudo-random number. The following simple Python code will run the coin flip simulation 100 times.
-
-```python
-import random 
-
-results = {
-    '00': 0,
-    '01': 0,
-    '10': 0,
-    '11': 0
-}
-
-for i in range(100):
-    random_number = random.randint(0,3)
-    results['{0:#010b}'.format(random.randint(0,3))[8:]] += 1
-
-for key in results:
-    print(f'{key} ==> {results[key]}')
-```
+For traditional computing, we would accomplish this by generating a pseudo-random number. The experiment file `pseudorandom.py` run the coin flip simulation 100 times.
 
 Running this, I generated the following results...
 
@@ -147,6 +129,8 @@ For this experiment, we are creating a quantum circuit where we put the first qu
 The circuit for this experiment is seen here:
 
 ![](images/circuit-bell-state.png)
+
+To run this experiment, run the `teleportation.py` experiment in your virtual environment. This will run 100 shots of the quantum circuit on your selected device.
 
 If this was traditional compute, we would expect to see variability in the first qubit, but our second qubit would remain a zero. However, due to the quantum behavior of entanglement, we see a high probability of the second entangled qubit exhibiting the same behavior as the first qubit. This circuit is akin to having two coins. You "flip" one of the coins, and the entanglement "flips" the other coin.
 
