@@ -23,6 +23,12 @@ print()
 # Run the task on the selected device
 print('Running bell state circuit with 100 shots')
 task = device.run(circuit, s3_folder, shots=100)
+task_metadata = task.metadata()
+s3_output = f's3://{task_metadata["outputS3Bucket"]}/{task_metadata["outputS3Directory"]}/results.json'
+print()
+print(f'Output will be saved to...')
+print(s3_output)
+print()
 results = task.result()
 
 # Output observations
